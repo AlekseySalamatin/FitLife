@@ -3,23 +3,27 @@ WATER_PER_KG = 30
 ML_IN_LITRI = 1000
 MIN_NORM = 19.5
 MAX_NORM = 22.9
+MIN_AGE = 18
+MAX_AGE = 80
+MIN_WEIGHT = 30
+MAX_WEIGHT = 300
+MIN_HEIGHT = 1.5
+MAX_HEIGHT = 2
 
 print('Здравствуйте!')
 while True:
     user_name = input('Введите, пожалуйста, ваше имя: ')
     if user_name.strip() != '':
         break
-    else:
-        print('Имя должно содержать символы.')
+    print('Имя должно содержать символы.')
 
 while True:
     try:
         user_age = int(input('Ваш возраст (полных лет): '))
-        if 18 <= user_age <= 80:
+        if MIN_AGE <= user_age <= MAX_AGE:
             break
-        else:
-            print('Возраст для корректного расчёта должен быть '
-                  'от 18 до 80 лет.')
+        print(f'Возраст для корректного расчёта должен быть '
+              f'от {MIN_AGE} до {MAX_AGE} лет.')
     except ValueError:
         print('Возраст должен быть целым числом, написанным цифрами.')
 
@@ -27,11 +31,10 @@ while True:
     try:
         user_weight = float(input('Введите, пожалуйста, '
                             'ваш вес (в кг.): ').replace(',', '.'))
-        if 30 <= user_weight <= 300:
+        if MIN_WEIGHT <= user_weight <= MAX_WEIGHT:
             break
-        else:
-            print('Вес для корректного расчёта должен быть '
-                  'от 30 до 300 кг.')
+        print(f'Вес для корректного расчёта должен быть '
+              f'от {MIN_WEIGHT} до {MAX_WEIGHT} кг.')
     except ValueError:
         print('Вес должен быть написан цифрами.')
 
@@ -39,11 +42,10 @@ while True:
     try:
         user_height = float(input('Введите, пожалуйста, '
                             'ваш рост (в метрах): ').replace(',', '.'))
-        if 1.5 <= user_height <= 2:
+        if MIN_HEIGHT <= user_height <= MAX_HEIGHT:
             break
-        else:
-            print('Рост для корректного расчёта должен быть '
-                  'от 1.5 до 2 метров.')
+        print(f'Рост для корректного расчёта должен быть '
+              f'от {MIN_HEIGHT} до {MAX_HEIGHT} метров.')
     except ValueError:
         print('Рост должен быть написан цифрами.')
 
